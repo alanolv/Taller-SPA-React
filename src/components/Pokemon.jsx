@@ -1,16 +1,27 @@
-import React, { useState } from "react";
-import ditto from '../assets/ditto.png'
-import char from '../assets/char.png'
+import Table from 'react-bootstrap/Table'
+
 function Poke(props) {
-  // Declaración de una variable de estado que llamaremos "count"
-  const [Name, setName] = useState('Ditto');
-  const [Imag, setImage]= useState(ditto);
   return (
-    <div>
-      <img src={Imag}></img>
-      <p>Hello, my name is {Name}</p>
-     <button onClick={() =>{setName('Ditto');setImage(ditto)}}>Pokemon anterior</button> <button onClick={() =>{setName('Charmander');setImage(char)}}>Siguiente Pokemon</button>
-    </div>
+    <>
+<Table striped bordered hover variant="dark" id="lista_pokemon">
+  <thead>
+    <tr>
+      <th>Pokedex</th>
+      <th>Pokemon Name</th>
+      <th>Pokemon Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{props.id}</td>
+      <td>{props.Name}</td>
+      <td>{props.type}</td> 
+    </tr>
+  </tbody>
+</Table>
+    </>
   );
 }
+
+
 export default Poke;
