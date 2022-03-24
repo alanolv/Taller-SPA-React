@@ -1,29 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
+function useLocalStorageState(key, defaultValue) {
+  const [state, setState] = useState(() => {
+    let value;
 
-  // empty array as second argument equivalent to componentDidMount
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(url);
-      const json = await response.json();
-      setData(json);
+    try {
+      value = JSON.parse(
+        window.localStorage.getItem(key) || String(defaultValue)
+      );
+    } catch (e) {
+      value = defaultValue;
     }
-    fetchData();
-  }, [url]);
+    return value;
+  });
 
-  return data;
-};
-
-const App = () => {
-    const URL = '../pokearray.json';
-    const result = useFetch(URL);
-
-    return (
-      <div>
-        {JSON.stringify(result)}
-      </div>
-    );
+  
+  useEffect(() => {
+    window.localStorage.setItem(key, state);
+  }, [key, state]);
+  return [state, setState];
 }
-export default useFetch;
+
+function Counter() {
+  const [count, setCount] = useLocalStorageState("my-app-count", 0);
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+    </div>
+  );
+}
+
+export default Counter;
