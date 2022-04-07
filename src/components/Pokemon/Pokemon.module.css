@@ -6,7 +6,7 @@
 }
 
 .card {
-  /* min-height: 15rem; */
+  min-height: 25rem;
 }
 
 .btn {
@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.pokemonImg {
+  min-height: 128px;
+}
+
 /* Green */
 .success {
   border-color: #04aa6d;
@@ -27,4 +31,9 @@
 .success:hover {
   background-color: #04aa6d;
   color: white;
+}
+
+.actionsContainer {
+  display: flex;
+  justify-content: space-around;
 }

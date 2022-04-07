@@ -1,20 +1,28 @@
 import styles from "./User.module.css";
 import { Card } from "react-bootstrap";
-
+import { Button } from "react-bootstrap";
 function User(props) {
-  const { pok } = props;
+  const { user } = props;
 
   return (
-    <Card border="dark">
+    <Card>
       <Card.Body className={`${styles.card} m-5 text-center`}>
         <p>
           <strong>Name:</strong>
         </p>
-        <p>{`${pok.name}`}</p>
+        <p>{`${user.name}`}</p>
         <p>
-          <strong>Email:</strong>
+          <strong>Base Experience:</strong>
         </p>
-        <p>{`${pok.url}`}</p>
+        <p>{`${user.base_experience}`}</p>
+        <p>
+          <strong>Height:</strong>
+        </p>
+        <p>{`${user.height}`}</p>
+        <div>
+          <Button variant="primary">Editar</Button>
+          <Button variant="danger">Eliminar</Button>
+        </div>
       </Card.Body>
     </Card>
   );

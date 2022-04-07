@@ -1,28 +1,17 @@
+body {
+  background-image: url("./assets/images/pokemon-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .pokemon-container {
-  justify-content: center;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 330px 330px 330px;
-  background-color: #fff;
+  grid-template-columns: 30% 30% 30%;
   color: #444;
 }
-.titulo{
-  text-align: center;
-  width:100%;
-  height: 4.5rem;
-  margin-top: 2rem;
-}
-.con{
-  margin-top: -1rem;
-}
-.im{
-  justify-content: start;
-  width: 2rem;
-  justify-items: center;
-  margin: .5rem;
-  margin-right: 0;
-  padding-bottom: .4rem;
-}
-.bs{
-  padding-top: .2rem;
+
+.white-text {
+  color: white;
 }
