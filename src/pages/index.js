@@ -1,5 +1,13 @@
 import { Outlet } from "react-router-dom";
-function Base(){
-    return <Outlet/>;
+import Navbar from "../components/Navbar";
+
+function Base() {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
 }
+
 export default Base;

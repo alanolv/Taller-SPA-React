@@ -1,12 +1,14 @@
 import styles from "./Pokemon.module.css";
 import { Card, Button } from "react-bootstrap";
 import axios from "../../utils/axios";
-import ShowModal from "../Modal";
-
-function Pokemon({ pokemon, fetchPokemons }) {
+import { NavLink } from "react-router-dom";
+import {dispatch, useDispatch} from "react-redux";
+import { removePokemon } from "../../actions/pokemonActions";
+ 
+function Pokemon({ pokemon}) {
+  const dispatch = useDispatch();
   const deletePokemon = async () => {
-    await axios.delete(`/pokemons/${pokemon.id}`);
-    fetchPokemons();
+    dispatch(removePokemon(pokemon.id));
     alert("Se ha eliminado el pokemon exitosamente!");
   };
 
@@ -31,13 +33,11 @@ function Pokemon({ pokemon, fetchPokemons }) {
           <img src={pokemon.sprite} alt="pokemon-img" />
         </div>
         <div className={`${styles.actionsContainer}`}>
-          <ShowModal
-            pokemon={pokemon}
-            type={"update"}
-            fetchPokemons={fetchPokemons}
-          />
+          <NavLink to={`/actualizar/${pokemon.id}`} className="btn btn-primary">
+            Actualizar
+          </NavLink>
           <Button variant="danger" onClick={deletePokemon}>
-            Danger
+            Eliminar
           </Button>
         </div>
       </Card.Body>
