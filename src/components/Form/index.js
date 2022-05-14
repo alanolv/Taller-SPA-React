@@ -20,10 +20,10 @@ function FormPokemon({ formData, setFormData, handleSubmit }) {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Base experience:</Form.Label>
+          <Form.Label>Experiencia base:</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ingresa el base experience"
+            placeholder="Ingresa la experiencia base"
             name="base_experience"
             onChange={handleChange}
             value={formData.base_experience}
@@ -31,22 +31,22 @@ function FormPokemon({ formData, setFormData, handleSubmit }) {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Height:</Form.Label>
+          <Form.Label>Altura:</Form.Label>
           <Form.Control
             type="text"
             name="height"
-            placeholder="Ingresa el height"
+            placeholder="Ingresa la altura"
             onChange={handleChange}
             value={formData.height}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Weight:</Form.Label>
+          <Form.Label>Peso:</Form.Label>
           <Form.Control
             type="text"
             name="weight"
-            placeholder="Ingresa el weight"
+            placeholder="Ingresa el peso"
             onChange={handleChange}
             value={formData.weight}
           />
@@ -56,13 +56,13 @@ function FormPokemon({ formData, setFormData, handleSubmit }) {
           <Form.Control
             type="text"
             name="sprite"
-            placeholder="Ingresa el sprite"
+            placeholder="Ingresa el link sprite"
             onChange={handleChange}
             value={formData.sprite}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <Button className="btn btn-success" type="submit">
+          Confirmar
         </Button>
       </Form>
     </>

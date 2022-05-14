@@ -1,17 +1,20 @@
 body {
-  background-image: url("./assets/images/pokemon-bg.jpg");
+  background-image: url("./assets/images/Fondo.jpg");
   background-position: center;
+  background-position: absolute;
+  background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .pokemon-container {
   display: grid;
+  
   grid-gap: 10px;
   grid-template-columns: 30% 30% 30%;
   color: #444;
 }
 
 .white-text {
-  color: white;
+  color: black;
 }

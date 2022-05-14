@@ -46,7 +46,7 @@ function ShowModal({ fetchPokemons, type, pokemon }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="btn btn-success" onClick={handleShow}>
         {type === "create" ? "Agregar" : "Actualizar"}
       </Button>
 
@@ -111,7 +111,7 @@ function ShowModal({ fetchPokemons, type, pokemon }) {
                 value={formData.sprite}
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button className="btn btn-success" type="submit">
               Submit
             </Button>
           </Form>

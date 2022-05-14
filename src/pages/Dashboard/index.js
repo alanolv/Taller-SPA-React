@@ -1,17 +1,13 @@
 import Pokemon from "../../components/Pokemon";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import "../../App.css";
-import { useState, useEffect, useCallback } from "react";
-import axios from "../../utils/axios";
-import {useSelector,useDispatch} from "react-redux";
-import {fetchPokemons} from "../../actions/pokemonActions"
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchPokemons } from "../../store/actions/pokemonActions";
 
 function App() {
-  const dispatch=useDispatch();
-  const {list:pokemons}= useSelector((state)=> state.pokemons);
-  console.log(pokemons);
-
-
+  const dispatch = useDispatch();
+  const { list: pokemons } = useSelector((state) => state.pokemons);
 
   useEffect(() => {
     try {
@@ -21,24 +17,16 @@ function App() {
     }
   }, [dispatch]);
 
-  // const buscarPokemon = function (event) {
-  //   let pokemonsArray = [...backUpPokemons];
-  //   pokemonsArray = pokemonsArray.filter((user) => {
-  //     return (
-  //       user.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1
-  //     );
-  //   });
-  //   setPokemons(pokemonsArray);
-  // };
-  const debounce = (callback,wait)=>{
+  const debounce = (callback, wait) => {
     let timer;
-    return(...args)=>{
+    return (...args) => {
       clearTimeout(timer);
-      timer = setTimeout(()=>{
+      timer = setTimeout(() => {
         callback(...args);
-      },wait);
-    }
-  }
+      }, wait);
+    };
+  };
+
   return (
     <>
       <Container className="mt-5">
@@ -52,11 +40,10 @@ function App() {
                 type="text"
                 placeholder="Ingresa el nombre"
                 name="name"
-                // onChange={buscarPokemon}
-                onKeyUp={debounce(function(e){
-                    const filter = {[e.target.name]: e.target.value.trim()};
-                    dispatch(fetchPokemons(filter));
-                  },500)}
+                onKeyUp={debounce(function (e) {
+                  const filter = { [e.target.name]: e.target.value.trim() };
+                  dispatch(fetchPokemons(filter));
+                }, 500)}
               />
             </Col>
           </Row>
@@ -65,11 +52,8 @@ function App() {
           <div className="pokemon-container m-5">
             {pokemons.map((pokemon) => {
               return (
-                <Col>
-                  <Pokemon
-                    key={pokemon.id}
-                    pokemon={pokemon}
-                  />
+                <Col key={pokemon.id}>
+                  <Pokemon pokemon={pokemon} />
                 </Col>
               );
             })}

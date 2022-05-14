@@ -5,7 +5,7 @@ function User(props) {
   const { user } = props;
 
   return (
-    <Card>
+    <Card classname="tarjeta">
       <Card.Body className={`${styles.card} m-5 text-center`}>
         <p>
           <strong>Name:</strong>

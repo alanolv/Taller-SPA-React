@@ -1,0 +1,13 @@
+.crear{
+    font-size: 17px;
+    color: black;
+    
+}
+
+.Navi{
+    display: inline-flex;  
+    align-items: center;
+    position: relative;
+    text-align: center;
+
+}
